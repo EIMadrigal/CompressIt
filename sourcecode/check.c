@@ -11,7 +11,7 @@ void check()
     j = k = 0;
     if(target == NULL)
     {
-        printf("Î´½ÓÊÕµ½Êı¾İ");
+        printf("æœªæ¥æ”¶åˆ°æ•°æ®");
         exit(0);
     }
 
@@ -25,17 +25,15 @@ void check()
         t = fgetc(target);
         if(s != t)
         {
-            printf("µÚ%d¸öÊı¾İ´«Êä´íÎó",i);
+            printf("ç¬¬%dä¸ªæ•°æ®ä¼ è¾“é”™è¯¯",i);
             printf("\n");
             j = 1;
         }
-
     }
     if(j == k)
         {
-            printf("Êı¾İ´«Êä³É¹¦");
+            printf("æ•°æ®ä¼ è¾“æˆåŠŸ");
         }
         fclose(source);
         fclose(target);
 }
-

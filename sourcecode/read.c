@@ -1,7 +1,6 @@
 #include"header.h"
-//#include<stdafx.h>
 
-struct txt *read()           //建立文本链表函数
+struct txt *read()           //寤虹珛鏂囨湰閾捐〃鍑芥暟
 {
     int n;
     struct txt *p1;
@@ -29,14 +28,13 @@ struct txt *read()           //建立文本链表函数
             n++;
             if (n == 1)
                 head = p1;
-
             else
                 p2->next = p1;
-            p2 = p1;
-            p1 = (struct txt*)malloc(sizeof(struct txt));
-            p1->date = fgetc(fp);
+				p2 = p1;
+				p1 = (struct txt*)malloc(sizeof(struct txt));
+				p1->date = fgetc(fp);
         }
-        p2->next = NULL;                                //这句得加上，否则尾结点的next指针就悬空了
+        p2->next = NULL;                                //杩欏彞寰楀姞涓婏紝鍚﹀垯灏剧粨鐐圭殑next鎸囬拡灏辨偓绌轰簡
         temp = head;
         printf("The passage is as follows:\n");
         while(temp)

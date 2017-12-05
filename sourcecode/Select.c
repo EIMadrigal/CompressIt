@@ -1,8 +1,8 @@
 #include"header.h"
-void Select(Huffmantree HT,int n)    //ÔÚÒ¶×Ó½áµãÖĞÕÒparentÎª0ÇÒÈ¨Öµ×îĞ¡µÄÁ½¸ö½áµã£¬ĞòºÅÎªs1,s2
+
+void Select(Huffmantree HT,int n)    //åœ¨å¶å­ç»“ç‚¹ä¸­æ‰¾parentä¸º0ä¸”æƒå€¼æœ€å°çš„ä¸¤ä¸ªç»“ç‚¹ï¼Œåºå·ä¸ºs1,s2
 {
     int i,j;
-
 
     for(i = 1; i<=n; i++)
     {
@@ -46,7 +46,7 @@ void Select(Huffmantree HT,int n)    //ÔÚÒ¶×Ó½áµãÖĞÕÒparentÎª0ÇÒÈ¨Öµ×îĞ¡µÄÁ½¸ö½á
             }
         }
     }
-    if(s1>s2)         //Ê¹s1ÎªÈ¨Öµ×îĞ¡
+    if(s1>s2)         //ä½¿s1ä¸ºæƒå€¼æœ€å°
     {
         int s3 = s1;
         s1 = s2;

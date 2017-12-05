@@ -1,4 +1,5 @@
 #include"header.h"
+
 int main()
 {
     SSTable ST;
@@ -21,7 +22,6 @@ int main()
     char *point;
     point = jiema;
 
-
     codedecode(maliu,point);
     printf("\n");
     printf("%s",jiema);
@@ -30,6 +30,6 @@ int main()
 
     check();
 
-	return 0;
+    return 0;
 
 }

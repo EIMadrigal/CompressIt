@@ -1,4 +1,5 @@
 #include"header.h"
+
 void Decoding(SSTable ST,char a[])
 {
 	int i = 0;
@@ -14,57 +15,51 @@ void Decoding(SSTable ST,char a[])
     int t;
 	for(t = 0; t <1000 ; t++)
 	b[t] = '\0';
-    //printf("%s",b);
 
 	for(k=0; k<11 ; k++ )
 	{
 	code1[k] = '\0';
-	}//code1[11]的元素全部赋值为'\0'
+	}//code1[11]鐨勫厓绱犲叏閮ㄨ祴鍊间负'\0'
 
 	decode = fopen("d:\\TargetDoc.txt","w+");
 	if( decode == NULL )
 	{
-		printf("无法打开TargetDoc.txt\n");
+		printf("鏃犳硶鎵撳紑TargetDoc.txt\n");
 		exit(0);
-	}//建立TragetDoc.txt文件
+	}//寤虹珛TragetDoc.txt鏂囦欢
 
 
 	else
 
 		for(i=0; a[i] != '\0' ; i++)
 		{
-	       code2 = a[i];//从Encode中取一个code
-	       //printf("%c",code2);
-           code1[j] = code2;   //将code2并到code1后面
+	       code2 = a[i];//浠嶦ncode涓彇涓�涓猚ode
+           code1[j] = code2;   //灏哻ode2骞跺埌code1鍚庨潰
            j++;
 
-           strcpy(ST.elem[0].code,code1);//哨兵
+           strcpy(ST.elem[0].code,code1);//鍝ㄥ叺
 
-        for (q = ST.length;  strcmp(code1,ST.elem[q].code)!=0 ;  q--);  //从后往前找code1
-		  {
-		      //printf("6");
+		   for (q = ST.length;  strcmp(code1,ST.elem[q].code)!=0 ;  q--);  //浠庡悗寰�鍓嶆壘code1
+		   {		      
 		      if(q)
 		      {
 			     m[0] = ST.elem[q].key;
-			     //printf("%c",m[0]);
 			     strcat(b,m);
 			     m[0] = '\0';
-			     m[1] = '\0';
-			    // printf("%s",strcat(b,m));
-			    //printf("%s",ST.elem[q].key);
+			     m[1] = '\0';			   
                  for(k=0; k<11 ; k++ )
 				 {
      	           code1[k] = '\0';
-                 }//再次将code1[8]的元素全部赋值为\0
-			       code2 = '\0';
-                   j = 0;
+                 }//鍐嶆灏哻ode1[8]鐨勫厓绱犲叏閮ㄨ祴鍊间负\0
+			     code2 = '\0';
+                 j = 0;
 		      }
-		  }
+		    }
 		}
+		
     int flag = 0;
     for(flag = 0; b[flag] != '\0'; flag++)
     {
-
         printf("%c",b[flag]);
         fprintf(decode,"%c",b[flag]);
     }

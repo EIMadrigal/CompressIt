@@ -1,6 +1,6 @@
 #include"header.h"
 
-int Encoding(SSTable ST,char a[])  //¶ÔÎÄ¼ş½øĞĞ±àÂëÊä³ö
+int Encoding(SSTable ST,char a[])  //å¯¹æ–‡ä»¶è¿›è¡Œç¼–ç è¾“å‡º
 {
     int i = 0;
     int m = 0;
@@ -14,33 +14,28 @@ int Encoding(SSTable ST,char a[])  //¶ÔÎÄ¼ş½øĞĞ±àÂëÊä³ö
     {
         printf("cannot open source.txt\n");
         exit(0);
-    }//´ò¿ªÔ´ÎÄµµSource.txt
+    }//æ‰“å¼€æºæ–‡æ¡£Source.txt
 
     else
 
         while( !feof(source) )
         {
-            key = fgetc(source);         //´ÓSourceÖĞÈ¡Ò»¸ö×Ö·ûkey
-            ST.elem[0].key = key;        //ÉÚ±ø
+            key = fgetc(source);         //ä»Sourceä¸­å–ä¸€ä¸ªå­—ç¬¦key
+            ST.elem[0].key = key;        //å“¨å…µ
             //printf("%c",ST.elem[0].key);
-            for (i = ST.length;  ST.elem[i].key != key ; i--); //´ÓºóÍùÇ°ÕÒkey
+            for (i = ST.length;  ST.elem[i].key != key ; i--); //ä»åå¾€å‰æ‰¾key
             {
                 if(i)
                      {
                         for(k=0; ST.elem[i].code[k] !='\0' ; k++)////
-                        a[m+k] = ST.elem[i].code[k];//½«ÕÒµ½µÄcode²¢Èëa[]ºóÃæ////
+                        a[m+k] = ST.elem[i].code[k];//å°†æ‰¾åˆ°çš„codeå¹¶å…¥a[]åé¢////
                         m = m + k ;
                      }
 
            }
         }
 
-       // printf();                       //µÃµ½Õû¸öÎÄÕÂµÄcodeÂëÁ÷
-
     fclose(source);
     return 0;
 
 }
-
-
-

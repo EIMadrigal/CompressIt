@@ -10,11 +10,11 @@ struct Text *command(struct txt *headate)
 	struct Text*p4;
 	struct Text*cycle1;
 	struct Text*cycle2;
-    struct Text*HOLD;
+    	struct Text*HOLD;
 	struct txt*pre;
 	struct txt *quanju;
-    struct txt *q;
-    struct txt*mid;
+    	struct txt *q;
+    	struct txt*mid;
 
 	char zifu;
 	int n;
@@ -28,8 +28,8 @@ struct Text *command(struct txt *headate)
 	{
 		zifu = headate->date;
 		pre = quanju = q = headate;
-		n = 0;                   //³õÊ¼Îª0
-		do                      //È·¶¨ÏÂÒ»¸öheadateµÄÎ»ÖÃ(ÏÂÒ»¸öÓëÇ°Ãæ½Úµã×Ö·û²»Í¬µÄÎ»ÖÃ)
+		n = 0;                   //åˆå§‹ä¸º0
+		do                      //ç¡®å®šä¸‹ä¸€ä¸ªheadateçš„ä½ç½®(ä¸‹ä¸€ä¸ªä¸å‰é¢èŠ‚ç‚¹å­—ç¬¦ä¸åŒçš„ä½ç½®)
 		{
 			if (zifu != q->date)
 			{
@@ -39,15 +39,15 @@ struct Text *command(struct txt *headate)
 			q = q->next;
 		}
 		while (q != NULL);
-		q = quanju;            //½«qÖØĞÂÀ­»Øµ½Á´±íµÄ¿ªÊ¼
+		q = quanju;            //å°†qé‡æ–°æ‹‰å›åˆ°é“¾è¡¨çš„å¼€å§‹
 		if (headate == q)
 		{
 			headate = NULL;
-		}//µÃ¼ÓÉÏÕâ¾ä£¬¿¼ÂÇµ½×îºóÇé¿ö£¬½«headate¸³Îª¿Õ
+		}//å¾—åŠ ä¸Šè¿™å¥ï¼Œè€ƒè™‘åˆ°æœ€åæƒ…å†µï¼Œå°†headateèµ‹ä¸ºç©º
 		do
 		{
-			if (zifu == q->date)//É¾³ıËùÓĞÓëÁ´±íµÚÒ»¸ö½Úµã×Ö·ûÏàÍ¬µÄ½Úµã²¢¼ÆÊı
-			{//É¾³ıµ±Ç°½Úµãºó£¬pre¼ÇÂ¼ÉÏÒ»¸ö½áµã,Á¬½ÓÁ´±í
+			if (zifu == q->date)//åˆ é™¤æ‰€æœ‰ä¸é“¾è¡¨ç¬¬ä¸€ä¸ªèŠ‚ç‚¹å­—ç¬¦ç›¸åŒçš„èŠ‚ç‚¹å¹¶è®¡æ•°
+			{//åˆ é™¤å½“å‰èŠ‚ç‚¹åï¼Œpreè®°å½•ä¸Šä¸€ä¸ªç»“ç‚¹,è¿æ¥é“¾è¡¨
 				n = n + 1;
 				mid = q;
 				q = mid->next;
@@ -62,12 +62,12 @@ struct Text *command(struct txt *headate)
 			}
 		} while (q != NULL);
 
-		if (p == head)//ÊäÈëµÚÒ»¸ö½ÚµãµÄÖµ
+		if (p == head)//è¾“å…¥ç¬¬ä¸€ä¸ªèŠ‚ç‚¹çš„å€¼
 		{
 			p1->word = zifu;
 			p1->a = n;
-			p = NULL;//Ê¹ÏÂÒ»´ÎÑ­»·½øÈëelseÓï¾ä
-			p2 = (struct Text*)malloc(LEN);//½¨Á¢Ò»¸öÎ»ÓÚÁ´±í×îºóµÄ½áµã£¬±ãÓÚ²åÈë
+			p = NULL;//ä½¿ä¸‹ä¸€æ¬¡å¾ªç¯è¿›å…¥elseè¯­å¥
+			p2 = (struct Text*)malloc(LEN);//å»ºç«‹ä¸€ä¸ªä½äºé“¾è¡¨æœ€åçš„ç»“ç‚¹ï¼Œä¾¿äºæ’å…¥
 			p1->next = p2;
 			p2->a = 10000;
 			p2->next = NULL;
@@ -75,7 +75,7 @@ struct Text *command(struct txt *headate)
 		else
 		{
 			cycle1 = head;
-			if (n <= cycle1->a)//ĞÂ½¨Á¢µÄ½áµãĞèÒª²åµ½Á´±í×îÇ°ÃæµÄÇé¿ö
+			if (n <= cycle1->a)//æ–°å»ºç«‹çš„ç»“ç‚¹éœ€è¦æ’åˆ°é“¾è¡¨æœ€å‰é¢çš„æƒ…å†µ
 			{
 				p3 = (struct Text*)malloc(LEN);
 				p3->a = n;
@@ -83,7 +83,7 @@ struct Text *command(struct txt *headate)
 				p3->next = head;
 				head = p3;
 			}
-			if (n > cycle1->a)//ĞÂ½¨Á¢µÄ½áµãĞèÒª²åµ½Á´±íÖĞ¼äµÄÇé¿ö
+			if (n > cycle1->a)//æ–°å»ºç«‹çš„ç»“ç‚¹éœ€è¦æ’åˆ°é“¾è¡¨ä¸­é—´çš„æƒ…å†µ
 			{
 				do
 				{

@@ -1,9 +1,9 @@
 #include"header.h"
-//w´æ·ÅÈ¨Öµ£¬¹¹½¨¹ş·òÂüÊ÷HT£¬Çó¹ş·òÂü±àÂëHC
+//wå­˜æ”¾æƒå€¼ï¼Œæ„å»ºå“ˆå¤«æ›¼æ ‘HTï¼Œæ±‚å“ˆå¤«æ›¼ç¼–ç HC
 void Huffmancoding(struct Text*head)
 {
     int i,j,start,c,f,n,m;
-    //n¸öÒ¶×Ó½áµã£¬m¸ö½áµã
+    //nä¸ªå¶å­ç»“ç‚¹ï¼Œmä¸ªç»“ç‚¹
     int w[100];
     char cd[100];
     struct Text*HOLD;
@@ -16,15 +16,15 @@ void Huffmancoding(struct Text*head)
     }
     head=HOLD;
     m = 2*n-1;
-    HT = (Huffmantree)malloc((m+1)*sizeof(HTNode));       //0ºÅµ¥ÔªÎ´ÓÃ
-    for(i = 1; i<=n; i++)                        //³õÊ¼»¯
+    HT = (Huffmantree)malloc((m+1)*sizeof(HTNode));       //0å·å•å…ƒæœªç”¨
+    for(i = 1; i<=n; i++)                        //åˆå§‹åŒ–
     {
         HT[i].weight = w[i-1];
         HT[i].parent = 0;
         HT[i].lchild = 0;
         HT[i].rchild = 0;
     }
-    for(i = n+1; i<=m; i++)                      //¹¹½¨¹ş·òÂüÊ÷
+    for(i = n+1; i<=m; i++)                      //æ„å»ºå“ˆå¤«æ›¼æ ‘
     {
         HT[i].weight = 0;
         HT[i].parent = 0;
@@ -41,13 +41,13 @@ void Huffmancoding(struct Text*head)
         HT[i].weight = HT[s1].weight+HT[s2].weight;
     }
 
-    //´ÓÒ¶×Óµ½¸ùÄæÏòÇóÃ¿¸öÒ¶×Ó½áµãµÄ¹ş·òÂü±àÂë
-    HC = (Huffmancode)malloc((n+1)*sizeof(char*));         //·ÖÅän¸öÒ¶×Ó½áµã±àÂëµÄÍ·Ö¸ÕëÏòÁ¿
-    cd[n-1] = '\0';                                         //±àÂë½áÊø·û
-    for(i = 1; i<=n; i++)                         //Öğ¸öÇó¹ş·òÂü±àÂë
+    //ä»å¶å­åˆ°æ ¹é€†å‘æ±‚æ¯ä¸ªå¶å­ç»“ç‚¹çš„å“ˆå¤«æ›¼ç¼–ç 
+    HC = (Huffmancode)malloc((n+1)*sizeof(char*));         //åˆ†é…nä¸ªå¶å­ç»“ç‚¹ç¼–ç çš„å¤´æŒ‡é’ˆå‘é‡
+    cd[n-1] = '\0';                                         //ç¼–ç ç»“æŸç¬¦
+    for(i = 1; i<=n; i++)                         //é€ä¸ªæ±‚å“ˆå¤«æ›¼ç¼–ç 
     {
-        start = n-1;                                   //±àÂë½áÊø·ûÎ»ÖÃ
-        for(c = i,f = HT[i].parent; f!=0; c = f,f = HT[f].parent)            //´ÓÒ¶×Óµ½¸úÄæÏòÇó±àÂë
+        start = n-1;                                   //ç¼–ç ç»“æŸç¬¦ä½ç½®
+        for(c = i,f = HT[i].parent; f!=0; c = f,f = HT[f].parent)            //ä»å¶å­åˆ°è·Ÿé€†å‘æ±‚ç¼–ç 
         {
             if(HT[f].lchild==c)
             {
@@ -58,22 +58,20 @@ void Huffmancoding(struct Text*head)
                 cd[--start] = '1';
             }
         }
-        HC[i] = (char *)malloc((n-start)*sizeof(char));                   //ÎªµÚi¸ö½áµã±àÂë·ÖÅä¿Õ¼ä
-        strcpy(HC[i],&cd[start]);                              //´Ócd¸´ÖÆ±àÂëµ½HC
+        HC[i] = (char *)malloc((n-start)*sizeof(char));                   //ä¸ºç¬¬iä¸ªç»“ç‚¹ç¼–ç åˆ†é…ç©ºé—´
+        strcpy(HC[i],&cd[start]);                              //ä»cdå¤åˆ¶ç¼–ç åˆ°HC
     }
 
     fo = fopen("D:\\Statistic.txt", "w");
 
-    fprintf(fo,"×Ö·û\t\t³öÏÖ´ÎÊı\tÆµ¶È\t\t¹ş·òÂüÂë±¾");
+    fprintf(fo,"å­—ç¬¦\t\tå‡ºç°æ¬¡æ•°\té¢‘åº¦\t\tå“ˆå¤«æ›¼ç æœ¬");
     fprintf(fo,"\n");
     printf("Would you like to see the statistics on the screen?  (Y or N?)\n");
-  if(getchar() == 'Y')
-   {
+    if(getchar() == 'Y')
+    {
         printf("The frequentness and codes of all characters are as follows:\n");
 
-        printf("×Ö·û\t\t³öÏÖ´ÎÊı\tÆµ¶È\t\t¹ş·òÂüÂë±¾\n");
-
-
+        printf("å­—ç¬¦\t\tå‡ºç°æ¬¡æ•°\té¢‘åº¦\t\tå“ˆå¤«æ›¼ç æœ¬\n");
 
         i=1;
         j = 1;
@@ -86,10 +84,9 @@ void Huffmancoding(struct Text*head)
                 fprintf(fo,"\t");
                 fputs(HC[i++],fo);
 
-
                 fprintf(fo,"\n");
                 printf("%c\t\t%d\t%f%%\t", head->word, head->a,head->percentage);
-               puts(HC[j++]);
+                puts(HC[j++]);
                 printf("\n");
                 head=head->next;
             }
@@ -97,8 +94,8 @@ void Huffmancoding(struct Text*head)
             {
                 fprintf(fo,"%c\t\t%d\t\t%f%%", head->word, head->a,head->percentage);
                 printf("%c\t%d\t%f%%\t", head->word, head->a,head->percentage);
-               puts(HC[j++]);
-        printf("\n");
+                puts(HC[j++]);
+				printf("\n");
                 fprintf(fo,"\t");
                 fputs(HC[i++],fo);
                 fprintf(fo,"\n");
@@ -108,4 +105,3 @@ void Huffmancoding(struct Text*head)
     }
     fclose(fo);
 }
-

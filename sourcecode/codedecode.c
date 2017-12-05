@@ -1,10 +1,7 @@
 #include"header.h"
 
-
-
 void codedecode(char a[],char *p)
 {
-
     int *zushu;
     int *bu;
     int b,c;
@@ -15,13 +12,10 @@ void codedecode(char a[],char *p)
     bu = &c;
     code(zushu, bu, a);
     decode(zushu, bu, p);
-
-
 }
 
 void code(int *z,int *b,char quan[])
 {
-
     int calculate(char ban[],FILE *fp);
     int i,j;
     FILE *fp;
@@ -59,10 +53,8 @@ void code(int *z,int *b,char quan[])
 
     fclose(fp);
 
-
-
-
 }
+
 int calculate(char ban[],FILE *fp)
 {
     int n;
@@ -88,7 +80,6 @@ int calculate(char ban[],FILE *fp)
 
 void decode(int *z,int *b,char save[])
 {
-
     unsigned char x[*z];
     int y[*z];
     char term[9]= {0};
@@ -99,8 +90,7 @@ void decode(int *z,int *b,char save[])
 
     i=j=k=l=0;
 
-
-    fo = fopen("D:\\Encode.dat","rb"); //´ò¿ªÎÄ¼þ
+    fo = fopen("D:\\Encode.dat","rb"); //æ‰“å¼€æ–‡ä»¶
 
     if(fo == NULL)
     {
@@ -108,17 +98,15 @@ void decode(int *z,int *b,char save[])
         exit(0);
     }
 
-
-
     for(i=0; i<*z; i++)
     {
-        fread(x+i,1,1,fo);//Ò»¸ö×Ö½ÚÒ»¸ö×Ö½ÚµÄ¶ÁÈëÎÄ¼þÀïµÄÊý¾Ý£¬·Ö±ð¸³¸øaÊý×é
-        y[i]=x[i];//½«×Ö·ûÊý×éÀïµÄÊý¾Ý×ªÎªÕûÐÍ
+        fread(x+i,1,1,fo);//ä¸€ä¸ªå­—èŠ‚ä¸€ä¸ªå­—èŠ‚çš„è¯»å…¥æ–‡ä»¶é‡Œçš„æ•°æ®ï¼Œåˆ†åˆ«èµ‹ç»™aæ•°ç»„
+        y[i]=x[i];//å°†å­—ç¬¦æ•°ç»„é‡Œçš„æ•°æ®è½¬ä¸ºæ•´åž‹
         printf("%d",y[i]);
         printf("\n");
     }
 
-    for(j=0; j<i; j++) //¶ÔÓÚbÊý×éÖÐµÄÔªËØ·Ö±ðÖ´ÐÐÑ­»·£¬Ñ­»·µÄ×÷ÓÃÊÇµÃµ½Êý×éÔªËØ¶ÔÓ¦µÄ8Î»¶þ½øÖÆ±àÂë
+    for(j=0; j<i; j++) //å¯¹äºŽbæ•°ç»„ä¸­çš„å…ƒç´ åˆ†åˆ«æ‰§è¡Œå¾ªçŽ¯ï¼Œå¾ªçŽ¯çš„ä½œç”¨æ˜¯å¾—åˆ°æ•°ç»„å…ƒç´ å¯¹åº”çš„8ä½äºŒè¿›åˆ¶ç¼–ç 
     {
         for(l=0; l<8; l++)
         {
@@ -139,11 +127,9 @@ void decode(int *z,int *b,char save[])
         }
         strcat(save,er);
 
-
     }
      save[8*(*z)-*b]='\0';
 
     printf("%s",save);
     fclose(fo);
 }
-

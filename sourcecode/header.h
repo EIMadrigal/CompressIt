@@ -3,25 +3,24 @@
 #include<stdlib.h>
 #include<malloc.h>
 
-
 #define LEN sizeof(struct Text)
 
 typedef struct HTNode
 {
-int weight;
-int parent,lchild,rchild;
-}HTNode,*Huffmantree;        //¶¨Òå½áµãÀàĞÍ
+	int weight;
+	int parent,lchild,rchild;
+}HTNode,*Huffmantree;        //å®šä¹‰ç»“ç‚¹ç±»å‹
 
-typedef char * * Huffmancode;//¶¯Ì¬·ÖÅäÊı×é´æ´¢¹ş·òÂü±àÂë±í
-    Huffmantree HT;
-    Huffmancode HC;
-	int s1,s2;
+typedef char * * Huffmancode;//åŠ¨æ€åˆ†é…æ•°ç»„å­˜å‚¨å“ˆå¤«æ›¼ç¼–ç è¡¨
+Huffmantree HT;
+Huffmancode HC;
+int s1,s2;
 
 struct txt
 {
 	char date;
 	struct txt*next;
-};//ÎÄ±¾Á´±í
+};//æ–‡æœ¬é“¾è¡¨
 
 struct Text
 {
@@ -29,27 +28,22 @@ struct Text
 	int a;
 	float percentage;
 	struct Text*next;
-};//ÅÅĞòºóµÄÍ³¼ÆÁ´±í
-
-
-//typedef char KeyType;
+};//æ’åºåçš„ç»Ÿè®¡é“¾è¡¨
 
 typedef struct
 {
 	char key;
 	char  code[11];
-}ElemType;//ÒÔÉÏÊÇ²éÕÒ±íÊı¾İÔªËØÀàĞÍ¶¨Òå
+}ElemType;//ä»¥ä¸Šæ˜¯æŸ¥æ‰¾è¡¨æ•°æ®å…ƒç´ ç±»å‹å®šä¹‰
 
 typedef struct
 {
     ElemType * elem;
     int      length;
-}SSTable;//ÒÔÉÏÊÇ¾²Ì¬²éÕÒ±íÀàĞÍ¶¨Òå
+}SSTable;//ä»¥ä¸Šæ˜¯é™æ€æŸ¥æ‰¾è¡¨ç±»å‹å®šä¹‰
 
-
-
-struct txt *read();//ÊäÈëº¯Êı
-struct Text *command(struct txt *headate);//ÅÅĞòº¯Êı
+struct txt *read();//è¾“å…¥å‡½æ•°
+struct Text *command(struct txt *headate);//æ’åºå‡½æ•°
 void Select(Huffmantree HT,int n);
 void Huffmancoding(struct Text*head);
 void Checking();

@@ -109,15 +109,13 @@ void Huffman::readAndCount() {
 /* select 2 min leaf node */
 void Huffman::select(int n, int &s1, int &s2) {
 	for (int i = 0; i < n; ++i) {
-		if (node[i].parent == -1 && node[i].weight <= node[s1].weight) {
+		if (node[i].parent == -1 && node[i].weight < node[s1].weight) {
 			s1 = i;
-			break;
 		}
 	}
 	for (int j = 0; j < n; ++j) {
-		if (node[j].parent == -1 && node[j].weight <= node[s2].weight && j != s1) {
+		if (node[j].parent == -1 && node[j].weight < node[s2].weight && j != s1) {
 			s2 = j;
-			break;
 		}
 	}
 }
